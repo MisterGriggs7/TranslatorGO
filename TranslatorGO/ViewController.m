@@ -56,9 +56,8 @@
         [FGTranslator flushCredentials];
     }
 
-// function called to translate
+// utilize FGTranslator API to translate
 - (FGTranslator *)translator {
-
     
     FGTranslator *translator = [[FGTranslator alloc] initWithBingAzureClientId:@"thePortableTranslator" secret:@"O+gtMESZwAPFxqV+9HWHthJsA4pb0yOLQNB5vnM8ybQ="];
     
@@ -113,13 +112,11 @@
     // Create G8Tesseract object
     G8Tesseract *tesseract = [[G8Tesseract alloc] initWithLanguage:@"eng"];
     
-    
     // Set up the delegate to receive Tesseract's callbacks.
     tesseract.delegate = self;
     
     // set chosen image to the image to be translated
     tesseract.image = [chosenImage g8_blackAndWhite];
-    
     
     // Start the recognition
     [tesseract recognize];
